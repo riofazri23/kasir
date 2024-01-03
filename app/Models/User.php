@@ -17,7 +17,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role,'
+        'role',
     ];
 
     protected $hidden = [
@@ -26,4 +26,5 @@ class User extends Authenticatable
 
     const CREATED_AT = 'creation_date';
     const UPDATED_AT = 'updated_date';
+    public $timestamps = false;
 }

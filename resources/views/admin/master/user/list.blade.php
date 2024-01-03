@@ -19,9 +19,9 @@
                         <div class="card-header">
                             <div class="d-flex align-items-center">
                                 <h4 class="card-title">{{ $title }}</h4>
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="modalCreate">
-                                    <i class="fa fa-plus">Tambah Data</i>
+                                <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
+                                    data-target="#modalCreate">
+                                    <i class="fa fa-plus"> Tambah Data</i>
                                 </button>
                             </div>
                         </div>
@@ -66,9 +66,8 @@
         <!-- #/ container -->
     </div>
 
-    <!-- Large modal -->
 
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="modalCreate">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -81,12 +80,19 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Nama Lengkap</label>
-                            <input type="text" class="form-control" name="name" placeholder="Nama Lengkap...." required>
+                            <input type="text" class="form-control" name="name" placeholder="Nama Lengkap...."
+                                required>
+                        </div>
+                        <div class="form-group">
                             <label>Email</label>
                             <input type="email" class="form-control" name="email" placeholder="email...." required>
+                        </div>
+                        <div class="form-group">
                             <label>Password</label>
                             <input type="password" class="form-control" name="password" placeholder="Password...." required>
-                            <label>Nama Lengkap</label>
+                        </div>
+                        <div class="form-group">
+                            <label>Role</label>
                             <select class="form-control" name="role" required>
                                 <option value="" hidden>-- Pilih Role --</option>
                                 <option value="admin">Admin</option>
@@ -95,11 +101,93 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-undo"></i>Close</button>
-                        <button type="button" class="btn btn-primary"><i class="fa fa-save"></i>Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-undo"></i>
+                            Close</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save changes</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+    @foreach ($data_user as $d)
+        <div class="modal fade bd-example-modal-lg" id="modalEdit{{ $d->id }}" tabindex="-1" role="dialog"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Data User</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                        </button>
+                    </div>
+                    <form method="post" action="/user/update/{{ $d->id }}">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Nama Lengkap</label>
+                                <input type="text" value="{{ $d->nama_lengkap }}" class="form-control" name="name"
+                                    placeholder="Nama Lengkap...." required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" value="{{ $d->email }}" class="form-control" name="email"
+                                    placeholder="email...." required>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="Password...."
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label>Role</label>
+                                <select class="form-control" name="role" required>
+                                    <option <?php if ($d['role'] == 'admin') {
+                                        echo 'selected';
+                                    } ?> value="admin">Admin</option>
+                                    <option <?php if ($d['role'] == 'kasir') {
+                                        echo 'selected';
+                                    } ?> value="kasir">Kasir</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><i
+                                    class="fa fa-undo"></i> Close</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save
+                                changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+    @foreach ($data_user as $c)
+        <div class="modal fade bd-example-modal-lg" id="modalHapus{{ $c->id }}" tabindex="-1" role="dialog"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Hapus Data User</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                        </button>
+                    </div>
+                    <form method="post" action="/user/destroy/{{ $d->id }}">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <h5>Apakah Anda Ingin Menghapus Data Ini ?</h5>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><i
+                                    class="fa fa-undo"></i> Close</button>
+                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
 @endsection

@@ -34,8 +34,8 @@
                                                 <td>Rio</td>
                                                 <td>Admin</td>
                                                 <td>
-                                                    <a href="#modalEdit{{$row->id}}" data-toggle="modal" class="btn btn-xs btn-primary"><i class="fa fa-edit"> Edit</i></a>
-                                                    <a href="#modalHapus{{$row->id}}" data-toggle="modal" class="btn btn-xs btn-danger"><i class="fa fa-trash"> Hapus</i></a>
+                                                    <a href="#" data-toggle="modal" class="btn btn-xs btn-primary"><i class="fa fa-edit"> Edit</i></a>
+                                                    <a href="#" data-toggle="modal" class="btn btn-xs btn-danger"><i class="fa fa-trash"> Hapus</i></a>
                                                 </td>
                                             </tr>
                                         </tbody>
