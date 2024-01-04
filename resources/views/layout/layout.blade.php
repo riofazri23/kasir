@@ -111,7 +111,7 @@
                     </li>
                     <li class="nav-label">UI Components</li>
                     <li>
-                        <a href="#" aria-expanded="false">
+                        <a href="/diskon" aria-expanded="false">
                             <i class="icon-badge menu-icon"></i><span class="nav-text">Setting Diskon</span>
                         </a>
                     </li>
@@ -120,18 +120,18 @@
                             <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Data Master</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="#">Data User</a></li>
-                            <li><a href="#">Data Jenis Barang</a></li>
-                            <li><a href="#">Data Barang</a></li>
+                            <li><a href="/user">Data User</a></li>
+                            <li><a href="/jenisbarang">Data Jenis Barang</a></li>
+                            <li><a href="/barang">Data Barang</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#" aria-expanded="false">
+                        <a href="/transaksi" aria-expanded="false">
                             <i class="icon-badge menu-icon"></i><span class="nav-text">Data Transaksi</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" aria-expanded="false">
+                        <a href="laporan" aria-expanded="false">
                             <i class="icon-badge menu-icon"></i><span class="nav-text">Data Laporan</span>
                         </a>
                     </li>
@@ -149,7 +149,7 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright &copy; Designed & Developed by <a href="#">Quixlab</a> 2018</p>
+                <p>Copyright &copy; Designed & Developed by <a href="#">Rio </a><span class="year"> 0000</span></p>
             </div>
         </div>
         <!--**********************************
@@ -194,7 +194,14 @@
             });
         </script>
     @endif
+<script>
+    // Get & Store Date
+var today = new Date();
+today = today.getFullYear();
 
+// Display Date
+$('.year').text(today);
+</script>
 </body>
 
 </html>
