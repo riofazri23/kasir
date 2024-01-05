@@ -111,7 +111,7 @@
                     </li>
                     <li class="nav-label">UI Components</li>
                     <li>
-                        <a href="/diskon" aria-expanded="false">
+                        <a href="/setdiskon" aria-expanded="false">
                             <i class="icon-badge menu-icon"></i><span class="nav-text">Setting Diskon</span>
                         </a>
                     </li>
@@ -178,8 +178,8 @@
     @if (session('success'))
         <script>
             Swal.fire({
-                title: "Good job!",
-                text: "You clicked the button!",
+                title: "Berhasil",
+                text: "Data Berhasil",
                 icon: "success"
             });
         </script>

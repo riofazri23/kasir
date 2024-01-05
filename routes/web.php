@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\DiskonController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -42,3 +43,7 @@ Route::get('/barang',[BarangController::class, 'index']);
 Route::post('/barang/store',[BarangController::class, 'store']);
 Route::post('/barang/update/{id}',[BarangController::class, 'update']);
 Route::post('/barang/destroy/{id}',[BarangController::class, 'destroy']);
+
+// SETTING DISKON
+Route::get('/setdiskon',[DiskonController::class, 'index']);
+Route::post('/setdiskon/update/{id}',[DiskonController::class, 'update']);

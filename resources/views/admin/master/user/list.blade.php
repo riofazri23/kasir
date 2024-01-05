@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <h4 class="card-title">{{ $title }}</h4>
                                 <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
@@ -24,8 +24,6 @@
                                     <i class="fa fa-plus"> Tambah Data</i>
                                 </button>
                             </div>
-                        </div>
-                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
@@ -59,6 +57,7 @@
                                 </table>
                             </div>
                         </div>
+                            
                     </div>
                 </div>
             </div>

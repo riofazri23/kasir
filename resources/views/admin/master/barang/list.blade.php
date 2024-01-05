@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <h4 class="card-title">{{ $title }}</h4>
                                 <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
@@ -24,8 +24,7 @@
                                     <i class="fa fa-plus"> Tambah Data</i>
                                 </button>
                             </div>
-                        </div>
-                        <div class="card-body">
+                            
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
@@ -41,28 +40,28 @@
                                     <tbody>
                                         @php
                                             $no = 1;
-                                        @endphp
+                                            @endphp
                                         @foreach ($data_barang as $row)
-                                            <tr>
-                                                <td>{{ $no++ }}</td>
-                                                <td>{{ $row->nama_barang }}</td>
-                                                <td>{{ $row->nama_jenis }}</td>
-                                                <td>{{ $row->stok }}</td>
-                                                <td>Rp. {{ number_format($row->harga) }}</td>
-                                                <td>
-                                                    <a href="#modalEdit{{ $row->id }}" data-toggle="modal"
-                                                        class="btn btn-sm btn-primary"><i class="fa fa-edit"> Edit</i></a>
+                                        <tr>
+                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $row->nama_barang }}</td>
+                                            <td>{{ $row->nama_jenis }}</td>
+                                            <td>{{ $row->stok }}</td>
+                                            <td>Rp. {{ number_format($row->harga) }}</td>
+                                            <td>
+                                                <a href="#modalEdit{{ $row->id }}" data-toggle="modal"
+                                                    class="btn btn-sm btn-primary"><i class="fa fa-edit"> Edit</i></a>
                                                     <a href="#modalHapus{{ $row->id }}" data-toggle="modal"
                                                         class="btn btn-sm btn-danger"><i class="fa fa-trash"> Hapus</i></a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- #/ container -->
