@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisBarangController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
- 
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +47,7 @@ Route::post('/barang/destroy/{id}',[BarangController::class, 'destroy']);
 // SETTING DISKON
 Route::get('/setdiskon',[DiskonController::class, 'index']);
 Route::post('/setdiskon/update/{id}',[DiskonController::class, 'update']);
+
+// KASIR
+Route::get('/transaksi',[TransaksiController::class, 'index']);
+Route::get('/transaksi/create',[TransaksiController::class, 'create']);
