@@ -52,11 +52,10 @@ Route::middleware(['auth'])->group(function(){
     // SETTING DISKON
     Route::get('/setdiskon',[DiskonController::class, 'index'])->middleware('userAkses:admin');
     Route::post('/setdiskon/update/{id}',[DiskonController::class, 'update'])->middleware('userAkses:admin');
+    Route::get('/logout',[SesiController::class,'logout']);
 });
 
 
 // KASIR
 Route::get('/transaksi',[TransaksiController::class, 'index']);
 Route::get('/transaksi/create',[TransaksiController::class, 'create']);
-
-Route::get('/logout',[SesiController::class,'logout']);
