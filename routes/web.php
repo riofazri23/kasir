@@ -25,9 +25,12 @@ use App\Http\Controllers\UserController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::get('/',[SesiController::class,'index'])->name('login');
 Route::middleware(['guest'])->group(function(){
-    Route::get('/',[SesiController::class,'index'])->name('login');
     Route::post('/',[SesiController::class,'login']);
+    // KASIR
+    Route::get('/transaksi',[TransaksiController::class, 'index']);
+    Route::get('/transaksi/create',[TransaksiController::class, 'create']);
 });
 
 Route::middleware(['auth'])->group(function(){
@@ -56,6 +59,3 @@ Route::middleware(['auth'])->group(function(){
 });
 
 
-// KASIR
-Route::get('/transaksi',[TransaksiController::class, 'index']);
-Route::get('/transaksi/create',[TransaksiController::class, 'create']);

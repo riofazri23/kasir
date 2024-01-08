@@ -44,7 +44,7 @@
             <div class="brand-logo">
                 <a href="index.html">
                     <b class="logo-abbr"><img src="/assets/images/logo.png" alt=""> </b>
-                    <span class="logo-compact"><img src="/assets//images/logo-compact.png" alt=""></span>
+                    <span class="logo-compact"><img src="/assets/images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
                         <img src="/assets/images/logo-text.png" alt="">
                     </span>
@@ -109,7 +109,7 @@
                             <i class="icon-badge menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                     </li>
-                    @if (Auth::user()->role == 'admin')
+                    @if (Auth::user()->role == 'admin'||'super_admin')
                         <li>
                             <a href="/setdiskon" aria-expanded="false">
                                 <i class="icon-badge menu-icon"></i><span class="nav-text">Setting Diskon</span>
