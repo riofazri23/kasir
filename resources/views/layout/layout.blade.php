@@ -83,7 +83,7 @@
                                             <a href="app-profile.html"><i class="icon-user"></i>
                                                 <span>Profile</span></a>
                                         </li>
-                                        <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a>
+                                        <li><a href="/logout"><i class="icon-key"></i> <span>Logout</span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -109,22 +109,25 @@
                             <i class="icon-badge menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-label">UI Components</li>
-                    <li>
-                        <a href="/setdiskon" aria-expanded="false">
-                            <i class="icon-badge menu-icon"></i><span class="nav-text">Setting Diskon</span>
-                        </a>
-                    </li>
-                    <li class="mega-menu mega-menu-sm">
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Data Master</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="/user">Data User</a></li>
-                            <li><a href="/jenisbarang">Data Jenis Barang</a></li>
-                            <li><a href="/barang">Data Barang</a></li>
-                        </ul>
-                    </li>
+                    @if (Auth::user()->role == 'admin')
+                        <li>
+                            <a href="/setdiskon" aria-expanded="false">
+                                <i class="icon-badge menu-icon"></i><span class="nav-text">Setting Diskon</span>
+                            </a>
+                        </li>
+                        <li class="mega-menu mega-menu-sm">
+                            <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                                <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Data Master</span>
+                            </a>
+                            <ul aria-expanded="false">
+                                @if (Auth::user()->role == 'super_admin')
+                                    <li><a href="/user">Data User</a></li>
+                                @endif
+                                <li><a href="/jenisbarang">Data Jenis Barang</a></li>
+                                <li><a href="/barang">Data Barang</a></li>
+                            </ul>
+                        </li>
+                    @endif
                     <li>
                         <a href="/transaksi" aria-expanded="false">
                             <i class="icon-badge menu-icon"></i><span class="nav-text">Data Transaksi</span>
@@ -149,7 +152,8 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright &copy; Designed & Developed by <a href="#">Rio </a><span class="year"> 0000</span></p>
+                <p>Copyright &copy; Designed & Developed by <a href="#">Rio </a><span class="year"> 0000</span>
+                </p>
             </div>
         </div>
         <!--**********************************
@@ -194,14 +198,14 @@
             });
         </script>
     @endif
-<script>
-    // Get & Store Date
-var today = new Date();
-today = today.getFullYear();
+    <script>
+        // Get & Store Date
+        var today = new Date();
+        today = today.getFullYear();
 
-// Display Date
-$('.year').text(today);
-</script>
+        // Display Date
+        $('.year').text(today);
+    </script>
 </body>
 
 </html>

@@ -94,6 +94,7 @@
                             <label>Role</label>
                             <select class="form-control" name="role" required>
                                 <option value="" hidden>-- Pilih Role --</option>
+                                <option value="super_admin">Super Admin</option>
                                 <option value="admin">Admin</option>
                                 <option value="kasir">Kasir</option>
                             </select>
@@ -124,7 +125,7 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>Nama Lengkap</label>
-                                <input type="text" value="{{ $d->nama_lengkap }}" class="form-control" name="name"
+                                <input type="text" value="{{ $d->name }}" class="form-control" name="name"
                                     placeholder="Nama Lengkap...." required>
                             </div>
                             <div class="form-group">
