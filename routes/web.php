@@ -29,9 +29,9 @@ Route::get('/',[SesiController::class,'index'])->name('login');
 Route::middleware(['guest'])->group(function(){
     Route::post('/',[SesiController::class,'login']);
     // KASIR
-    Route::get('/transaksi',[TransaksiController::class, 'index']);
-    Route::get('/transaksi/create',[TransaksiController::class, 'create']);
 });
+Route::get('/transaksi',[TransaksiController::class, 'index']);
+Route::get('/transaksi/create',[TransaksiController::class, 'create']);
 
 Route::middleware(['auth'])->group(function(){
     // CRUD DATA USER
